@@ -3,7 +3,10 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>World Clock</title>
+    <meta name="description" content="World Clock by Parth - Check the current time in different countries like India, USA, UK, Australia, and Japan. Simple and easy-to-use world clock.">
+    <meta name="keywords" content="world clock, world clock by parth, current time, time in india, time in usa, time in uk, time in australia, time in japan">
+    <meta name="author" content="Parth">
+    <title>World Clock by Parth - Check Current Time in Different Countries</title>
     <style>
         body {
             font-family: Arial, sans-serif;
@@ -23,7 +26,6 @@
         .navbar h1 {
             color: white;
             margin: 0;
-            
             font-size: 20px;
         }
         .navbar a {
@@ -56,11 +58,8 @@
             font-size: 33px;
             background-color: #f9f9f9;
             font-weight: bold;
-            /* width: 100%; */
-            box-sizing: border-box; /* Ensures padding and border are included in width */
-
+            box-sizing: border-box;
         }
-
         button {
             background-color: #007bff;
             color: white;
@@ -73,29 +72,80 @@
     </style>
 </head>
 <body>
-    <div class="navbar">
-        <h1>World Clock</h1>
-        <div>
+    <header class="navbar">
+        <h1>World Clock by Parth</h1>
+        <nav>
             <a href="#">Home</a>
             <a href="#">About</a>
             <a href="#">Contact</a>
+        </nav>
+    </header>
+    <main>
+        <div class="container">
+            <h2>Select a Country</h2>
+            <label for="country">Choose a country:</label>
+            <select id="country">
+              <option value="india">India</option>
+              <option value="us">United States</option>
+                <option value="uk">United Kingdom</option>
+                <option value="au">Australia</option>
+                <option value="jp">Japan</option>
+            </select>
+            <div class="time-display" id="time">Time will be shown here</div>
         </div>
-    </div>
-    <div class="container">
-        <h2>Select a Country</h2>
-        <label for="country">Choose a country:</label>
-        <select id="country">
-          <option value="india">India</option>
-          <option value="us">United States</option>
-            <option value="uk">United Kingdom</option>
-            <option value="au">Australia</option>
-            <option value="jp">Japan</option>
-        </select>
-        <!-- <button id="show-time">OK</button> -->
-        <div class="time-display" id="time">Time will be shown here</div>
-    </div>
+    </main>
+
+  <script>
 
 
-    <script src="index.js"></script>
+const options = {
+	weekday: "long",
+	month: "long",
+	day: "numeric",
+	year: "numeric",
+	hour: "numeric",
+	minute: "numeric",
+	second: "numeric",
+	hour12: true,
+};
+
+let timeDisplay = document.getElementById("time");
+
+let button = document.getElementById("show-time");
+
+	setInterval(() => {
+		
+let myDate = new Date();
+
+	let country = document.getElementById("country");
+	let changedValue = country.value;
+	let arr = {
+    india: "Asia/Kolkata",
+		us: "America/New_York",
+		uk: "Europe/London",
+		au: "Australia/Sydney",
+		jp: "Asia/Tokyo",
+	};
+  let finalDate=myDate.toLocaleString("en-Gb",{...options,timeZone:arr[changedValue]})
+	timeDisplay.innerHTML = finalDate;
+	}, 1000);
+  
+
+  </script>
+    <!-- Schema Markup for SEO -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "FAQPage",
+        "mainEntity": [{
+            "@type": "Question",
+            "name": "How does the World Clock by Parth work?",
+            "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "The World Clock by Parth allows you to select a country from the dropdown menu and displays the current time in that country's timezone."
+            }
+        }]
+    }
+    </script>
 </body>
 </html>
