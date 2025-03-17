@@ -7,68 +7,9 @@
     <meta name="keywords" content="world clock, world clock by parth, current time, time in india, time in usa, time in uk, time in australia, time in japan">
     <meta name="author" content="Parth">
     <title>World Clock by Parth - Check Current Time in Different Countries</title>
+    <link rel="canonical" href="https://worldclockbyparth.vercel.app/">
     <style>
-        body {
-            font-family: Arial, sans-serif;
-            background-color: #f4f4f4;
-            text-align: center;
-            padding: 50px;
-            margin: 0;
-        }
-        .navbar {
-            background-color: #333;
-            overflow: hidden;
-            padding: 15px 20px;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
-        .navbar h1 {
-            color: white;
-            margin: 0;
-            font-size: 20px;
-        }
-        .navbar a {
-            color: white;
-            text-decoration: none;
-            padding: 8px 15px;
-            transition: 0.3s;
-        }
-        .navbar a:hover {
-            background-color: #575757;
-            border-radius: 5px;
-        }
-        .container {
-            background: white;
-            padding: 20px;
-            border-radius: 8px;
-            box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
-            max-width: 400px;
-            margin: 50px auto;
-        }
-        select, .time-display, button {
-            width: 100%;
-            padding: 10px;
-            margin-top: 10px;
-            border: 1px solid #ccc;
-            border-radius: 5px;
-            font-size: 16px;
-        }
-        .time-display {
-            font-size: 33px;
-            background-color: #f9f9f9;
-            font-weight: bold;
-            box-sizing: border-box;
-        }
-        button {
-            background-color: #007bff;
-            color: white;
-            border: none;
-            cursor: pointer;
-        }
-        button:hover {
-            background-color: #0056b3;
-        }
+        body{font-family:Arial,sans-serif;background-color:#f4f4f4;text-align:center;padding:50px;margin:0}.navbar{background-color:#333;overflow:hidden;padding:15px 20px;display:flex;justify-content:space-between;align-items:center}.navbar h1{color:#fff;margin:0;font-size:20px}.navbar a{color:#fff;text-decoration:none;padding:8px 15px;transition:.3s}.navbar a:hover{background-color:#575757;border-radius:5px}.container{background:#fff;padding:20px;border-radius:8px;box-shadow:0 0 10px rgba(0,0,0,.1);max-width:400px;margin:50px auto}.time-display,button,select{width:100%;padding:10px;margin-top:10px;border:1px solid #ccc;border-radius:5px;font-size:16px}.time-display{font-size:33px;background-color:#f9f9f9;font-weight:700;box-sizing:border-box}button{background-color:#007bff;color:#fff;border:none;cursor:pointer}button:hover{background-color:#0056b3}
     </style>
 </head>
 <body>
@@ -81,6 +22,7 @@
         </nav>
     </header>
     <main>
+        <p style="color: #0056b3; font-size: larger;">Welcome to the World Clock by Parth! Easily check the current time in countries like India, USA, UK, Australia, and Japan. Stay updated with accurate time zones.</p>
         <div class="container">
             <h2>Select a Country</h2>
             <label for="country">Choose a country:</label>
@@ -97,40 +39,7 @@
 
   <script>
 
-
-const options = {
-	weekday: "long",
-	month: "long",
-	day: "numeric",
-	year: "numeric",
-	hour: "numeric",
-	minute: "numeric",
-	second: "numeric",
-	hour12: true,
-};
-
-let timeDisplay = document.getElementById("time");
-
-let button = document.getElementById("show-time");
-
-	setInterval(() => {
-		
-let myDate = new Date();
-
-	let country = document.getElementById("country");
-	let changedValue = country.value;
-	let arr = {
-    india: "Asia/Kolkata",
-		us: "America/New_York",
-		uk: "Europe/London",
-		au: "Australia/Sydney",
-		jp: "Asia/Tokyo",
-	};
-  let finalDate=myDate.toLocaleString("en-Gb",{...options,timeZone:arr[changedValue]})
-	timeDisplay.innerHTML = finalDate;
-	}, 1000);
-  
-
+const options={weekday:"long",month:"long",day:"numeric",year:"numeric",hour:"numeric",minute:"numeric",second:"numeric",hour12:!0};let timeDisplay=document.getElementById("time"),button=document.getElementById("show-time");setInterval(()=>{let e=new Date,n=document.getElementById("country").value,t={india:"Asia/Kolkata",us:"America/New_York",uk:"Europe/London",au:"Australia/Sydney",jp:"Asia/Tokyo"},o=e.toLocaleString("en-Gb",{...options,timeZone:t[n]});timeDisplay.innerHTML=o},1e3);
   </script>
     <!-- Schema Markup for SEO -->
     <script type="application/ld+json">
